@@ -23,6 +23,9 @@ contract Raffle {
             revert Raffle__NotEnoughETHEntered();
         }
         s_players.push(payable(msg.sender))
+
+        // Events
+        
     }
 
     // function pickRandomWinner() {}
