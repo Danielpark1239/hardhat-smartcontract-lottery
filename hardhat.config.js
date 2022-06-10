@@ -24,9 +24,9 @@ module.exports = {
         },
         rinkeby: {
             chainId: 4,
-            blockConfirmations: 6,
             url: RINKEBY_RPC_URL,
-            accounts: [PRIVATE_KEY],
+            accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+            saveDeployments: true,
         },
     },
     gasReporter: {
@@ -47,6 +47,11 @@ module.exports = {
         },
     },
     mocha: {
-        timeout: 300000, // 300 seconds max
+        timeout: 1000000, // 1000 seconds max
+    },
+    etherscan: {
+        apiKey: {
+            rinkeby: process.env.ETHERSCAN_API_KEY,
+        },
     },
 }

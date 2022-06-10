@@ -5,7 +5,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
 // Unit tests on development chains
 !developmentChains.includes(network.name)
     ? describe.skip
-    : describe("Lottery", function () {
+    : describe("Lottery unit tests", function () {
           let lottery, vrfCoordinatorV2Mock, lotteryEntranceFee, deployer, interval
           const chainId = network.config.chainId
 
