@@ -6,8 +6,8 @@ const FRONTEND_ABI_FILE = "../nextjs-smartcontract-lottery/constants/abi.json"
 module.exports = async function () {
     if (process.env.UPDATE_FRONTEND) {
         console.log("updating frontend...")
-        updateContractAddresses()
-        updateAbi()
+        await updateContractAddresses()
+        await updateAbi()
         console.log("frontend updated!")
     }
 }
@@ -20,7 +20,7 @@ async function updateContractAddresses() {
     if (chainId in contractAddresses) {
         // update if contract address is different
         if (!contractAddresses[chainId].includes(lottery.address)) {
-            contractAddresses[chainId].push(lottery.address)
+            contractAddresses[chainId] = [lottery.address] // just using one for now
         }
     }
     // frontend doesn't have chainId
